@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeView">
+
+    <fragment
+        android:id="@+id/homeView"
+        android:name="com.alistair.navpart.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/projectsView"
+        android:name="com.alistair.navpart.projects.ProjectsFragment"
+        android:label="fragment_projects"
+        tools:layout="@layout/fragment_projects" >
+        <action
+            android:id="@+id/action_projectsView_to_createNewProjectFragment"
+            app:destination="@id/createNewProjectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreView"
+        android:name="com.alistair.navpart.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/createNewProjectFragment"
+        android:name="com.alistair.navpart.projects.CreateNewProjectFragment"
+        android:label="fragment_create_new_project"
+        tools:layout="@layout/fragment_create_new_project" />
+</navigation>
