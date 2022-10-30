@@ -62,7 +62,7 @@ private lateinit var mMap : GoogleMap
                 if( maps != null && maps!!.isNotEmpty() ){
                    for( map  in response.body()!! ){
                        val newLocation = LatLng(map.latitude.toDouble(), map.longitude.toDouble())
-                       mMap.addMarker(MarkerOptions().position(newLocation).title(map.createdBy))
+                       mMap.addMarker(MarkerOptions().position(newLocation).title(map.localName))
                        mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocation))
                    }
                }
