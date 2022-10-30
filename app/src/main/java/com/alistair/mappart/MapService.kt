@@ -15,5 +15,5 @@ interface MapService {
    @GET("trees")
    fun getTrees(
       @Header("Authorization") token:String
-   ):Call<Any>
+   ):Call<Array<TreeInfo>>
 }

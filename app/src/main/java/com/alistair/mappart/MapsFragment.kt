@@ -1,13 +1,11 @@
 package com.alistair.mappart
 
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "http://10.0.2.2:8080/"
 const val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGlAMTIzIiwiZXhwIjoxNjY3MTYxNTEwLCJpYXQiOjE2NjcxMjU1MTB9.UzJt5BFR_G7Sn6DXAYFhkQXkZZDDkl-ToiFyiNP7SRo"
 class MapsFragment : Fragment() {
-
+private lateinit var mMap : GoogleMap
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -34,6 +32,7 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+        mMap = googleMap
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
@@ -55,14 +54,28 @@ class MapsFragment : Fragment() {
 
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
         val mapService = retrofit.create(MapService::class.java)
-        mapService.getTrees(token).enqueue(object: Callback<Any> {
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+
+        mapService.getTrees(token).enqueue(object: Callback<Array<TreeInfo>> {
+            override fun onResponse(call: Call<Array<TreeInfo>>, response: Response<Array<TreeInfo>>) {
                 Log.d("MapThing","onsuccess : ${response.body()}")
+               val maps = response.body()
+                if( maps != null && maps!!.isNotEmpty() ){
+                   for( map  in response.body()!! ){
+                       val newLocation = LatLng(map.latitude.toDouble(), map.longitude.toDouble())
+                       mMap.addMarker(MarkerOptions().position(newLocation).title(map.createdBy))
+                       mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocation))
+                   }
+               }
             }
-            override fun onFailure(call: Call<Any>, t: Throwable) {
+            override fun onFailure(call: Call<Array<TreeInfo>>, t: Throwable) {
                 Log.d("MapThing","onfailure: $t")
             }
 
         })
     }
+
+//    override fun onMapReady(map: GoogleMap) {
+//googleMap = map
+//    }
+
 }
