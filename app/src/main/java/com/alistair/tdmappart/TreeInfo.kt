@@ -1,0 +1,40 @@
+package com.alistair.tdmappart
+
+import java.sql.Timestamp
+
+data class TreeInfo(
+    val id: Long?=null,
+    val treeName: String = "",
+    val city: String = "",
+    val ward: String = "",
+    val street: String = "",
+    val createdOn: Timestamp? = null,
+    val modifiedOn: Timestamp? = null,
+    val createdBy: String = "",
+    val modifiedBy: String = "",
+    val latitude: String = "",
+    val longitude: String = "",
+    val locationAccuracy: String = "",
+    val species: String = "",
+    val localName: String = "",
+    val dbh: String = "123",
+    val height: Double = 0.0,
+    val spread: Double = 0.0,
+    val form: String = "",
+    val siteTopography: String = "",
+    val otherSiteTopography: String = "",
+    val rootSurfaceType: String = "",
+    val rootSurfaceValue: String = "",
+    val foilageColor: String = "",
+    val foilageDensity: String = "",
+    val vigorClass: String = "",
+    val treesDefects: String = "",
+    val partLikelyFail: String = "",
+    val targetUnderTree: String = "",
+    val canBeMoved: Boolean = false,
+    val occupancy: String = "",
+    val hazardRating: String = "",
+    val hazardAbatement: String = "",
+    val remarks: String = "",
+    val imagePath: String = ""
+)
