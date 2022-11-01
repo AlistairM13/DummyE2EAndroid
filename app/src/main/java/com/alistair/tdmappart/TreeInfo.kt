@@ -17,7 +17,7 @@ data class TreeInfo(
     val locationAccuracy: String = "",
     val species: String = "",
     val localName: String = "",
-    val dbh: String = "123",
+    val dbh: String = "",
     val height: Double = 0.0,
     val spread: Double = 0.0,
     val form: String = "",
