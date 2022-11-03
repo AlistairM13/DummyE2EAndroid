@@ -21,8 +21,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-private const val TOKEN =
-    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGkxMjMiLCJleHAiOjE2Njc0OTQ2MzMsImlhdCI6MTY2NzQ1ODYzM30.hIjn7sB-r6UNSZuXM2jX6P5Bs_Ph3aJYKPiYu4Sm_K4"
 private const val TAG = "projectsFragment"
 
 class ProjectsFragment : Fragment() {
@@ -50,10 +48,10 @@ class ProjectsFragment : Fragment() {
     }
 
     private fun showAllProjects() {
-        Client.treeService.getProjects(TOKEN).enqueue(object : Callback<ProjectInfo> {
+        Client.treeService.getProjects(AppInfo.token!!).enqueue(object : Callback<ProjectInfo> {
             override fun onResponse(call: Call<ProjectInfo>, response: Response<ProjectInfo>) {
-
-                if (response.code() == 200) {
+                Log.d(TAG, "$response")
+                if (response.isSuccessful && response.body() != null) {
                     val projectList = response.body()!!.projectList
 
                     recyclerView = binding.rvProjectsList
@@ -64,7 +62,8 @@ class ProjectsFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<ProjectInfo>, t: Throwable) {
-                Toast.makeText(requireContext(), "Error loading projects $t", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Error loading projects $t", Toast.LENGTH_SHORT)
+                    .show();
             }
 
         })

@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show();
                     AppInfo.token = "Bearer ${response.body()!!.jwt}"
                     AppInfo.currentUser = binding.etLoginMail.text.toString()
-                    Log.d("getjwt","${AppInfo.token}")
                     val sharedPreferences = getSharedPreferences("Token", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
                     editor.putString("token", AppInfo.token)
