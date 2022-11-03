@@ -15,11 +15,13 @@
         android:id="@+id/projectsFragment"
         android:name="com.alistair.tdlogin.ui.projects.ProjectsFragment"
         android:label="fragment_projects"
-        tools:layout="@layout/fragment_projects" />
+        tools:layout="@layout/fragment_projects" >
+    </fragment>
     <fragment
         android:id="@+id/moreFragment"
         android:name="com.alistair.tdlogin.ui.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
+
 
 </navigation>
