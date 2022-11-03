@@ -8,11 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.alistair.tdlogin.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="fragment_maps"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/projectsFragment"
-        android:name="com.alistair.tdlogin.ui.ProjectsFragment"
+        android:name="com.alistair.tdlogin.ui.projects.ProjectsFragment"
         android:label="fragment_projects"
         tools:layout="@layout/fragment_projects" />
     <fragment
@@ -20,4 +21,5 @@
         android:name="com.alistair.tdlogin.ui.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
+
 </navigation>
