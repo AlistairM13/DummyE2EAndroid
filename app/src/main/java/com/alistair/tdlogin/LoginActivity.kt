@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.alistair.tdlogin.api.Client
 import com.alistair.tdlogin.models.Token
@@ -45,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show();
                     AppInfo.token = "Bearer ${response.body()!!.jwt}"
                     AppInfo.currentUser = binding.etLoginMail.text.toString()
-
+                    Log.d("getjwt","${AppInfo.token}")
                     val sharedPreferences = getSharedPreferences("Token", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
                     editor.putString("token", AppInfo.token)
