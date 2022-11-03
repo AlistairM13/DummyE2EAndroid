@@ -1,12 +1,12 @@
 package com.alistair.tdlogin.ui.projects
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alistair.tdlogin.databinding.ProjectsSingleItemBinding
+import com.alistair.tdlogin.models.Project
 
-class ProjectsListAdapter( val projects: List<Char>) : RecyclerView.Adapter<ProjectsListAdapter.ViewHolder>() {
+class ProjectsListAdapter(private val projects: List<Project>) : RecyclerView.Adapter<ProjectsListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ProjectsSingleItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -17,7 +17,7 @@ class ProjectsListAdapter( val projects: List<Char>) : RecyclerView.Adapter<Proj
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvProjectName.text = projects[position].toString()
+        holder.binding.tvProjectName.text = projects[position].name
     }
 
     override fun getItemCount() = projects.size

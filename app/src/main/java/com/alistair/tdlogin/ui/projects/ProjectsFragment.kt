@@ -39,13 +39,13 @@ class ProjectsFragment : Fragment() {
 
         Client.treeService.getProjects(TOKEN).enqueue(object : Callback<ProjectInfo> {
             override fun onResponse(call: Call<ProjectInfo>, response: Response<ProjectInfo>) {
-                Log.d(TAG, "${response.body()}")
+
                 if (response.code() == 200) {
                     val projectList = response.body()!!.projectList
 
-//                    recyclerView = binding.rvProjectsList
-//                    recyclerView.adapter = ProjectsListAdapter(projectList)
-//                    recyclerView.layoutManager
+                    recyclerView = binding.rvProjectsList
+                    recyclerView.adapter = ProjectsListAdapter(projectList)
+                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 }
 
             }
