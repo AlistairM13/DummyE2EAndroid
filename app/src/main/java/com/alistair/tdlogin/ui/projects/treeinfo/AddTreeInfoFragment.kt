@@ -31,6 +31,7 @@ class AddTreeInfoFragment : Fragment(), View.OnClickListener {
 
         binding.cardTreeInfo.setOnClickListener(this)
         binding.cardTreeHealth.setOnClickListener(this)
+        binding.cardTreeImage.setOnClickListener(this)
 
     }
 
@@ -38,6 +39,7 @@ class AddTreeInfoFragment : Fragment(), View.OnClickListener {
         when(v!!.id){
             R.id.cardTreeInfo -> navController.navigate(R.id.action_addTreeInfoFragment_to_basicTreeInfoFragment)
             R.id.cardTreeHealth -> navController.navigate(R.id.action_addTreeInfoFragment_to_treeHealthFragment)
+            R.id.cardTreeImage -> navController.navigate(R.id.action_addTreeInfoFragment_to_cameraFragment)
         }
     }
 

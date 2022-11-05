@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_addTreeInfoFragment_to_treeHealthFragment"
             app:destination="@id/treeHealthFragment" />
+        <action
+            android:id="@+id/action_addTreeInfoFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/basicTreeInfoFragment"
@@ -27,4 +30,9 @@
         android:name="com.alistair.tdlogin.ui.projects.treeinfo.TreeHealthFragment"
         android:label="fragment_tree_health"
         tools:layout="@layout/fragment_tree_health" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.alistair.tdlogin.ui.projects.treeinfo.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
 </navigation>
