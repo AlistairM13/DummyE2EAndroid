@@ -2,4 +2,6 @@
     <string name="app_name">tdLogin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="latitude">Latitude: %1$.3f </string>
+    <string name="longitude">Longitude: %1$.3f </string>
 </resources>

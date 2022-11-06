@@ -1,14 +1,684 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.projects.treeinfo.TreeHealthFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="add health" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Form"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/generallySymmetric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generally symmetric"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/minorAsymmetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Minor asymmetry"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/majorAsymmetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Major asymmetry"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Site Condition:"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Site topography"
+                android:textColor="@color/Green"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/siteTopography"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/flat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Flat"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/slope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Slope"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:id="@+id/siteOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Root surface cover"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/pavedRootSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Paved"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/pavedRootValue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/turfRootSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Turf"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/turfRootValue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/bareSoilRootSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Bare Soil"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/bareSoilRootValue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/otherRootSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/otherRootValue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Tree Health:"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Foliage color"
+                android:textColor="@color/Green"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/foliageColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/chlorotic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chlorotic"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/necrotic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Necrotic"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Foliage density"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/foliageDensity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dense"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/sparse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sparse"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Vigor class"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/vigorClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/vigorGood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Good"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/vigorAverage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Average"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/vigorPoor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Poor"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Hazard Status:"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Trees defect"
+                android:textColor="@color/Green"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/treeDefectList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/multi_editbox_border"
+                    android:enabled="false"
+                    android:inputType="textMultiLine"
+                    android:maxLines="25"
+                    android:minLines="2"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="5dp"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/treeDefects"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="0.5"
+                    android:background="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_touch">
+
+                </androidx.appcompat.widget.AppCompatImageButton>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Tree part most likely to fail"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/partLikelyToFail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Target under the tree"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <CheckBox
+                android:id="@+id/building"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Building"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/parking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Parking"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Traffic"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/pedestrian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pedestrian"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/landscape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Landscape"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/hardscape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hardscape"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/utilityLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Utility Line"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Can target be moved?"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/canBeMoved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/movedYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/movedNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Occupancy"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/occupancy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/occasionalUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Occasional Use"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/frequentUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Frequent Use"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/constantUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Constant Use"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Hazard ratings"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/hazardRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/ratingLow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/ratingMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medium"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/ratingHigh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="High"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/ratingSevere"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Severe"
+                    android:textColor="@color/Green"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Hazard abatement"
+                android:textColor="@color/Green"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <CheckBox
+                android:id="@+id/removeDefectivePart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove Defective Part"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/reduceEndWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reduce End Weight"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/crownClean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crown Clean"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/crownThin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crown Thin"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/raiseCanopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raise Canopy"
+                android:textColor="@color/Green"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,27 +71,48 @@
                 android:id="@+id/tvTreeLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="32dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="32dp"
                 android:text="Tree location"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTreeLocation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTreeLocation"
-                app:layout_constraintVertical_bias="0.5"
                 app:srcCompat="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/tvLatitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTreeLocation"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/tvTreeLocation"
+                app:layout_constraintTop_toTopOf="@+id/tvTreeLocation"
+                tools:text="@string/latitude" />
+
+            <TextView
+                android:id="@+id/tvLongitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvLatitude"
+                app:layout_constraintTop_toBottomOf="@+id/tvLatitude"
+                tools:text="@string/longitude" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
