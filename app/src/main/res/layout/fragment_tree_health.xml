@@ -137,7 +137,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/pavedRootValue"
+                    android:id="@+id/etPavedRootValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -676,7 +676,11 @@
                 android:text="Raise Canopy"
                 android:textColor="@color/Green"
                 android:textSize="16sp" />
-
+<Button
+    android:id="@+id/btnTreeHealthDone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Done"/>
 
         </LinearLayout>
     </ScrollView>

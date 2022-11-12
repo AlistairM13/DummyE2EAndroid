@@ -16,15 +16,39 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.alistair.tdlogin.R
 import com.alistair.tdlogin.databinding.FragmentAddTreeInfoBinding
+import com.alistair.tdlogin.models.BasicTreeInfo
+
+
 import com.google.android.gms.location.*
+import java.io.Serializable
 
+private const val TAG = "AddTreeInfo"
 
-class AddTreeInfoFragment : Fragment(), View.OnClickListener {
+class AddTreeInfoFragment : Fragment(), View.OnClickListener{
     private lateinit var navController: NavController
-    private lateinit var _binding: FragmentAddTreeInfoBinding
-    private val binding get() = _binding
-
+    private var _binding: FragmentAddTreeInfoBinding? = null
+    private val binding get() = _binding!!
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
+//    private var basicTreeInfo: java.io.Serializable? = null
+//    private var treeHealthInfo: java.io.Serializable? = null
+//    private var imagePath: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val basicTreeInfo = arguments?.getSerializable("basicTreeInfo")
+        val treeHealthInfo = arguments?.getString("treeHealthInfo")
+        val cameraInfo = arguments?.getString("cameraInfo")
+        Log.d("addTreeInfo", "basicInfo $basicTreeInfo")
+        Log.d("addTreeInfo", "treehealth $treeHealthInfo")
+        Log.d("addTreeInfo", "camera $cameraInfo \n")
+//        basicTreeInfo = arguments?.getSerializable(BASIC_TREE_INFO) as? BasicTreeInfo
+//        treeHealthInfo = arguments?.getSerializable(TREE_HEALTH_INFO) as? TreeHealthInfo
+//        imagePath = arguments?.getString(IMAGE_PATH)
+//        Log.d(TAG, "$basicTreeInfo $treeHealthInfo $imagePath")
+
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +58,6 @@ class AddTreeInfoFragment : Fragment(), View.OnClickListener {
         _binding = FragmentAddTreeInfoBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
@@ -48,6 +71,7 @@ class AddTreeInfoFragment : Fragment(), View.OnClickListener {
         binding.cardTreeLocation.setOnClickListener {
             fetchLocation()
         }
+
     }
 
     private fun fetchLocation() {
@@ -64,10 +88,9 @@ class AddTreeInfoFragment : Fragment(), View.OnClickListener {
         }
 
 
-        LocationServices.getFusedLocationProviderClient(requireContext()).getCurrentLocation(100,null).addOnSuccessListener {
-            Log.d("gotloc","$it")
-            if (it != null){
-                Log.d("gotloc","$it")
+        LocationServices.getFusedLocationProviderClient(requireContext())
+            .getCurrentLocation(100, null).addOnSuccessListener {
+            if (it != null) {
                 showLatLong(it)
             }
         }
