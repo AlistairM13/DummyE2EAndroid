@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tree_creation_nav_graph"
+    app:startDestination="@id/addTreeInfoFragment">
+
+    <fragment
+        android:id="@+id/addTreeInfoFragment"
+        android:name="com.alistair.tdlogin.ui.projects.treeinfo.AddTreeInfoFragment"
+        android:label="AddTreeInfoFragment" >
+        <action
+            android:id="@+id/action_addTreeInfoFragment_to_treeMapsFragment"
+            app:destination="@id/treeMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/treeMapsFragment"
+        android:name="com.alistair.tdlogin.ui.projects.treeinfo.TreeMapsFragment"
+        android:label="fragment_tree_maps"
+        tools:layout="@layout/fragment_tree_maps" >
+        <action
+            android:id="@+id/action_treeMapsFragment_to_addTreeInfoFragment"
+            app:destination="@id/addTreeInfoFragment" />
+    </fragment>
+</navigation>

@@ -17,5 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/tree_info_nav_graph" />
+        app:navGraph="@navigation/tree_creation_nav_graph"
+         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
